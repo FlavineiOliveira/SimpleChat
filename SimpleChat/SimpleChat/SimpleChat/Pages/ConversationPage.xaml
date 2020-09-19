@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SimpleChat.Pages.ConversationPage">
+    
+    <ContentPage.Content>
+
+        <Grid Margin="0"
+              Padding="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="lstMessages"
+                      ItemsSource="{Binding Messages, Mode=OneWay}"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
+
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout HorizontalOptions="{Binding HorizontalOptions, Mode=OneWay}" 
+                                         Margin="10, 5">
+
+                                <Label Text="{Binding MessageDateTime, Mode=OneWay}"
+                                       FontSize="Micro"/>
+
+                                <Frame CornerRadius="5"
+                                       Padding="10">
+
+                                    <Label Text="{Binding Text, Mode=OneWay}" />
+
+                                </Frame>
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                    
+                </ListView.ItemTemplate>
+                
+            </ListView>
+
+
+            <Frame Grid.Row="1"
+                   CornerRadius="25"
+                   HasShadow="True"
+                   Margin="10"
+                   Padding="10">
+
+                <StackLayout HorizontalOptions="FillAndExpand"
+                             Orientation="Horizontal">
+
+                    <Entry HorizontalOptions="FillAndExpand"
+                           Placeholder="Message"
+                           Text="{Binding TextIn} "/>
+
+                    <ImageButton BackgroundColor="Transparent"
+                                 Command="{Binding SendCommand}"
+                                 HeightRequest="30"
+                                 Source="send.png"
+                                 WidthRequest="30" />
+
+                </StackLayout>
+
+            </Frame>
+
+        </Grid>
+
+    </ContentPage.Content>
+    
+</ContentPage>
