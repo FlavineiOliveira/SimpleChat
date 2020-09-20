@@ -13,6 +13,7 @@ namespace SimpleChat.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected readonly INavigationService NavigationService;
+        protected readonly IDialogService DialogService;
 
         #endregion
 
@@ -47,9 +48,10 @@ namespace SimpleChat.ViewModels
 
         #endregion
 
-        public ViewModelBase(INavigationService navigationService)
+        public ViewModelBase(INavigationService navigationService, IDialogService dialogService)
         {
             NavigationService = navigationService;
+            DialogService = dialogService;
         }
 
         public virtual Task InitializeAsync(object navigationData)

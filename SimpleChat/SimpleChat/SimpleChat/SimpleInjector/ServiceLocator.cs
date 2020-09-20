@@ -14,6 +14,7 @@ namespace SimpleChat.SimpleInjector
             Container.Options.ResolveUnregisteredConcreteTypes = true;
 
             Container.Register<INavigationService, NavigationService>();
+            Container.Register<IDialogService, DialogService>();
         }
     }
 }

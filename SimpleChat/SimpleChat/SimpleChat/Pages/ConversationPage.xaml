@@ -4,7 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="SimpleChat.Pages.ConversationPage">
+             x:Class="SimpleChat.Pages.ConversationPage"
+             BackgroundColor="{StaticResource SecondaryColor}"
+             Title="{Binding TargetName}">
     
     <ContentPage.Content>
 
@@ -30,9 +32,11 @@
                                          Margin="10, 5">
 
                                 <Label Text="{Binding MessageDateTime, Mode=OneWay}"
+                                       HorizontalOptions="{Binding HorizontalOptions, Mode=OneWay}" 
                                        FontSize="Micro"/>
 
-                                <Frame CornerRadius="5"
+                                <Frame BackgroundColor="{Binding ColorFrame}"
+                                       CornerRadius="5"
                                        Padding="10">
 
                                     <Label Text="{Binding Text, Mode=OneWay}" />
@@ -60,7 +64,8 @@
 
                     <Entry HorizontalOptions="FillAndExpand"
                            Placeholder="Message"
-                           Text="{Binding TextIn} "/>
+                           Text="{Binding TextIn}"
+                           ReturnCommand="{Binding SendCommand}"/>
 
                     <ImageButton BackgroundColor="Transparent"
                                  Command="{Binding SendCommand}"

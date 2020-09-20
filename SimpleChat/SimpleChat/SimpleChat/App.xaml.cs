@@ -20,7 +20,7 @@ namespace SimpleChat
             ServiceLocator.RegisterInterfaces();
 
             var navigationService = ServiceLocator.Container.GetInstance<INavigationService>();
-            navigationService.NavigateToAsync<ConversationViewModel>();
+            navigationService.NavigateToAsync<SetUsersViewModel>();
         }
 
         protected override void OnStart()

@@ -5,6 +5,8 @@ namespace SimpleChat.Models
 {
     public class Message
     {
+        public string KeyMessage { get; set; } 
+
         public string UserId { get; set; }
 
         public string Text { get; set; }
@@ -16,6 +18,14 @@ namespace SimpleChat.Models
             {
                 return App.User.Id == this.UserId ? LayoutOptions.EndAndExpand : LayoutOptions.StartAndExpand;
             } 
+        }
+
+        public Color ColorFrame
+        {
+            get
+            {
+                return App.User.Id == this.UserId ? (Color)Application.Current.Resources["TertiaryColor"] : (Color)Application.Current.Resources["PrimaryColor"];
+            }
         }
     }
 }

@@ -7,5 +7,9 @@
              x:Class="SimpleChat.App">
     <Application.Resources>
 
+        <Color x:Key="PrimaryColor">#FFFFFF</Color>
+        <Color x:Key="SecondaryColor">#F5F6F1</Color>
+        <Color x:Key="TertiaryColor">#A8B1F3</Color>
+        
     </Application.Resources>
 </Application>

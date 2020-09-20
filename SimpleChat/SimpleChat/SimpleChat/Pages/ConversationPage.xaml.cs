@@ -1,4 +1,5 @@
 ﻿using SimpleChat.Messages;
+using SimpleChat.ViewModels;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,6 +28,13 @@ namespace SimpleChat.Pages
         {
             var lastItem = lstMessages.ItemsSource.Cast<object>().Last();
             lstMessages.ScrollTo(lastItem, ScrollToPosition.End, true);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            ((ConversationViewModel)BindingContext).LoadScreen();
         }
     }
 }
